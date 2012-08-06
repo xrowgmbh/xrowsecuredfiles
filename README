@@ -1,0 +1,24 @@
+1.)
+Enable extension and run autoloads
+
+2.)
+Create additional directories in var/[siteaccess]/storage/secure
+
+For example create directory "free" and direcory "protected".
+
+3.) 
+
+In the Backend  ( User->Roles and Policies ) create a the policy for the 
+role "Anonymous" with access to the Module "files" with Funtion "read" 
+and Limitation "free". Now do the same for the role "Member" and the
+ Limitation "protected".
+ 
+4.) Get the content
+
+Place files and directories in var/[siteaccess]/storage/secure/free and var/[siteaccess]/storage/secure/protected
+
+5.) Disallow direct access (optional)
+
+Add this rule to .htacess
+
+RewriteRule ^var/([^/]+/)?storage/secure/.* - [F]
